@@ -1,6 +1,13 @@
-import { Greeter } from '../src/greeter';
+import { Hashflags } from '../src/hashflags';
 
-test('Should greet with message', () => {
-  const greeter = new Greeter('friend');
-  expect(greeter.greet()).toBe('Bonjour, friend!');
+it('Should have baseUrl available', async () => {
+  const hashflags = new Hashflags();
+  await hashflags.fetch();
+  expect(hashflags.baseUrl).not.toBeUndefined();
+});
+
+it('Should have activeHashflags available', async () => {
+  const hashflags = new Hashflags();
+  await hashflags.fetch();
+  expect(hashflags.activeHashflags).not.toBeUndefined();
 });
