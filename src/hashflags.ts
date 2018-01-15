@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { URL } from 'url';
+import axios from "axios";
+import { URL } from "url";
 
 export class Hashflags {
   // tslint:disable-next-line:variable-name
@@ -12,7 +12,7 @@ export class Hashflags {
 
   public async fetch() {
     await axios
-      .get('https://hashflags.blob.core.windows.net/json/activeHashflags')
+      .get("https://hashflags.blob.core.windows.net/json/activeHashflags")
       .then(response => {
         this._baseUrl = new URL(response.data.hashflagBaseUrl);
         this._activeHashflags = response.data.activeHashflags;
