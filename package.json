@@ -26,10 +26,12 @@
     "watch": "npm run build -- --watch",
     "watch:test": "jest --watch"
   },
+  "dependencies": {
+    "axios": "^0.17.1"
+  },
   "devDependencies": {
     "@types/jest": "^22.0.1",
     "@types/node": "^9.3.0",
-    "axios": "^0.17.1",
     "coveralls": "^3.0.0",
     "jest-environment-node-debug": "^2.0.0",
     "jest": "^22.0.4",
