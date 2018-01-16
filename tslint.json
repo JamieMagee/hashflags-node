@@ -1,3 +1,8 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier"]
+  "extends": ["tslint:latest", "tslint-config-prettier", "tslint-microsoft-contrib"],
+  "rules": {
+    "no-implicit-dependencies": [true, "dev"],
+    "quotemark": false,
+    "no-backbone-get-set-outside-model": false
+  }
 }
