@@ -40,10 +40,28 @@ export class Hashflags {
 
   /**
    * Get a map of all the current active hashflags, and full URL to their image.
-   * @returns Map from hashtag to hashflag image
+   * @returns Map from hashtag to hashflag URL
    */
   public get activeHashflags(): Map<string, URL> {
     return this._activeHashflags;
+  }
+
+  /**
+   * Returns the hashflag URL for a single hashtag.
+   * @param hashtag The hashtag you wish to retrieve the hashflag URL for.
+   * @returns A URL object or undefined
+   */
+  public getUrl(hashtag: string): URL | undefined {
+    return this._activeHashflags.get(hashtag);
+  }
+
+  /**
+   * Returns the hashflag URLs for an array of hashtags
+   * @param hashtags an array of hashtags you wish to retrieve the hashflag URLs for
+   * @returns An array of URL objects or undefined
+   */
+  public getUrls(hashtags: string[]): (URL | undefined)[] {
+    return hashtags.map((ht: string) => this._activeHashflags.get(ht));
   }
 }
 

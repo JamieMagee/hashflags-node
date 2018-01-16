@@ -10,6 +10,7 @@ import { Hashflags } from '../src/Hashflags';
 
 describe('Test', () => {
   let hashflags: Hashflags;
+  let olympicTorchURL: URL;
 
   beforeAll(async () => {
     const mock: MockAdapter = new MockAdapter(axios);
@@ -20,18 +21,30 @@ describe('Test', () => {
       .onGet('https://hashflags.blob.core.windows.net/json/activeHashflags')
       .reply(200, mockData);
     hashflags = await Hashflags.CREATE();
+
+    olympicTorchURL = new URL(
+      'https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png'
+    );
   });
+
   it('Should have activeHashflags map available', () => {
     expect(hashflags.activeHashflags).not.toBeUndefined();
   });
 
-  it('Should contain olympictorchrelay hashtag', () => {
+  it('Should contain hashtag', () => {
     expect(hashflags.activeHashflags.has('olympictorchrelay')).toBeTruthy();
     expect(hashflags.activeHashflags.get('olympictorchrelay')).toEqual(
-      new URL(
-        'https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png'
-      )
+      olympicTorchURL
     );
+  });
+
+  it('Should get hashtag URL', () => {
+    expect(hashflags.getUrl('olympictorchrelay')).toEqual(olympicTorchURL);
+    expect(hashflags.getUrl('test')).toBeUndefined();
+  });
+
+  it('Should get hashtag URLs', () => {
+    expect(hashflags.getUrls(['olympictorchrelay', 'test'])).toEqual([olympicTorchURL, undefined]);
   });
 });
 
