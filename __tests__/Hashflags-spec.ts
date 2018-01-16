@@ -44,7 +44,10 @@ describe('Test', () => {
   });
 
   it('Should get hashtag URLs', () => {
-    expect(hashflags.getUrls(['olympictorchrelay', 'test'])).toEqual([olympicTorchURL, undefined]);
+    expect(hashflags.getUrls(['olympictorchrelay', 'test'])).toEqual([
+      olympicTorchURL,
+      undefined
+    ]);
   });
 });
 
