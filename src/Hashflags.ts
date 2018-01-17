@@ -6,7 +6,7 @@ import { URL } from 'url';
  */
 export class Hashflags {
   // tslint:disable-next-line:variable-name
-  private _activeHashflags: Map<string, URL>;
+  public activeHashflags: Map<string, URL>;
 
   private constructor() {}
 
@@ -26,9 +26,9 @@ export class Hashflags {
     await axios
       .get('https://hashflags.blob.core.windows.net/json/activeHashflags')
       .then((response: AxiosResponse<IHashflagsJson>) => {
-        this._activeHashflags = new Map();
+        this.activeHashflags = new Map();
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
-          this._activeHashflags.set(
+          this.activeHashflags.set(
             key,
             new URL(
               response.data.hashflagBaseUrl + response.data.activeHashflags[key]
@@ -39,20 +39,12 @@ export class Hashflags {
   }
 
   /**
-   * Get a map of all the current active hashflags, and full URL to their image.
-   * @returns Map from hashtag to hashflag URL
-   */
-  public get activeHashflags(): Map<string, URL> {
-    return this._activeHashflags;
-  }
-
-  /**
    * Returns the hashflag URL for a single hashtag.
    * @param hashtag The hashtag you wish to retrieve the hashflag URL for.
    * @returns A URL object or undefined
    */
   public getUrl(hashtag: string): URL | undefined {
-    return this._activeHashflags.get(hashtag);
+    return this.activeHashflags.get(hashtag);
   }
 
   /**
@@ -61,7 +53,7 @@ export class Hashflags {
    * @returns An array of URL objects or undefined
    */
   public getUrls(hashtags: string[]): (URL | undefined)[] {
-    return hashtags.map((ht: string) => this._activeHashflags.get(ht));
+    return hashtags.map((ht: string) => this.activeHashflags.get(ht));
   }
 }
 
