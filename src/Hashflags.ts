@@ -5,7 +5,6 @@ import { URL } from 'url';
  *
  */
 export class Hashflags {
-  // tslint:disable-next-line:variable-name
   public activeHashflags: Map<string, URL>;
 
   private constructor() {}
