@@ -4097,9 +4097,9 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
-twitter-text@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/twitter-text/-/twitter-text-2.0.2.tgz#3d2a3e64e83ad7aca927d72b0f92bcc2f8f33ed8"
+twitter-text@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/twitter-text/-/twitter-text-2.0.3.tgz#0c5fbeea2debb07658a66b9c957fa2f7bfd935d4"
   dependencies:
     punycode "^2.1.0"
 
