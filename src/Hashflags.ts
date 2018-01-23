@@ -24,7 +24,7 @@ export class Hashflags {
 
   public async initialize(): Promise<void> {
     await axios
-      .get('https://hashflags.blob.core.windows.net/json/activeHashflags')
+      .get('https://hashflags.jamiemagee.co.uk/json/activeHashflags')
       .then((response: AxiosResponse<IHashflagsJson>) => {
         this.activeHashflags = new Map();
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
