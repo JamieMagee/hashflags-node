@@ -18,7 +18,7 @@ describe('Test', () => {
       fs.readFileSync('./__tests__/activeHashflags.json', 'utf8')
     );
     mock
-      .onGet('https://hashflags.blob.core.windows.net/json/activeHashflags')
+      .onGet(new RegExp('.*'))
       .reply(200, mockData);
     hashflags = await Hashflags.CREATE();
 
