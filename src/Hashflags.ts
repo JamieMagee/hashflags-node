@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { URL } from 'url';
 
 /**
- *
+ * A library for using Twitter hashflags in the browser and Node.js
  */
 export class Hashflags {
   public activeHashflags: Map<string, URL>;
