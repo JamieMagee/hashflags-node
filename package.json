@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "rimraf lib && rimraf coverage",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote",
-    "lint": "tslint --project . --force --format verbose \"src/**/*.ts\"",
+    "lint": "tslint --fix --project . --force --format verbose \"src/**/*.ts\"",
     "prepare": "npm run build",
     "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty",
