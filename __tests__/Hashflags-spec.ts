@@ -17,9 +17,7 @@ describe('Test', () => {
     const mockData: IHashflagsJson = JSON.parse(
       fs.readFileSync('./__tests__/activeHashflags.json', 'utf8')
     );
-    mock
-      .onGet(new RegExp('.*'))
-      .reply(200, mockData);
+    mock.onGet(new RegExp('.*')).reply(200, mockData);
     hashflags = await Hashflags.CREATE();
 
     olympicTorchURL = new URL(
