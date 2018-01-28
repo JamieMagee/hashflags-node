@@ -27,10 +27,13 @@ Importing and initialising `Hashflags` in TypeScript
 
 ```ts
 import { Hashflags } from 'hashflags';
+import { URL } from 'url';
 
 let hf: Hashflags;
-Hashflags.CREATE().then((value: Hashflags) => (hf = value));
-console.log(hf.activeHashflags)
+Hashflags.FETCH().then((val: Map<string, URL>) => {
+    hf = new Hashflags(val);
+    console.log(hf.activeHashflags);
+});
 ```
 
 Importing and initialising `Hashflags` in JavaScript
@@ -39,8 +42,10 @@ Importing and initialising `Hashflags` in JavaScript
 const Hashflags = require('hashflags').Hashflags;
 
 let hf;
-Hashflags.CREATE().then((value) => (hf = value));
-console.log(hf.activeHashflags)
+Hashflags.FETCH().then((val) => {
+    hf = new Hashflags(val);
+    console.log(hf.activeHashflags);
+});
 ```
 
 # License

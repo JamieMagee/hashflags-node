@@ -7,27 +7,18 @@ import { URL } from 'url';
 export class Hashflags {
   public activeHashflags: Map<string, URL>;
 
-  private constructor() {}
-
-  /**
-   * A static constructor for the Hashflags class.
-   * This is necessary as we need to make an API call to populate the list of active hashflags.
-   * @returns A Hashflags instance.
-   */
-  public static async CREATE(): Promise<Hashflags> {
-    const clazz: Hashflags = new Hashflags();
-    await clazz.initialize();
-
-    return clazz;
+  constructor(activeHashflags: Map<string, URL>) {
+    this.activeHashflags = activeHashflags;
   }
 
-  public async initialize(): Promise<void> {
+  public static async FETCH(): Promise<Map<string, URL>> {
+    const activeHashflags: Map<string, URL> = new Map();
+
     await axios
       .get('https://hashflags.jamiemagee.co.uk/json/activeHashflags')
       .then((response: AxiosResponse<IHashflagsJson>) => {
-        this.activeHashflags = new Map();
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
-          this.activeHashflags.set(
+          activeHashflags.set(
             key,
             new URL(
               response.data.hashflagBaseUrl + response.data.activeHashflags[key]
@@ -35,6 +26,8 @@ export class Hashflags {
           );
         });
       });
+
+    return activeHashflags;
   }
 
   /**

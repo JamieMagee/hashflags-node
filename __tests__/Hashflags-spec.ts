@@ -18,7 +18,9 @@ describe('Test', () => {
       fs.readFileSync('./__tests__/activeHashflags.json', 'utf8')
     );
     mock.onGet(new RegExp('.*')).reply(200, mockData);
-    hashflags = await Hashflags.CREATE();
+    hashflags = await Hashflags.FETCH().then((val: Map<string, URL>) => {
+      return new Hashflags(val);
+    });
 
     olympicTorchURL = new URL(
       'https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png'
