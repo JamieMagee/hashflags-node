@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { extractHashtagsWithIndices, HashtagWithIndices } from 'twitter-text';
 import { URL } from 'url';
 
 /**
@@ -16,7 +17,7 @@ export class Hashflags {
 
     await axios
       .get('https://hashflags.jamiemagee.co.uk/json/activeHashflags')
-      .then((response: AxiosResponse<IHashflagsJson>) => {
+      .then((response: AxiosResponse<HashflagsJson>) => {
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
           activeHashflags.set(
             key,
@@ -47,9 +48,34 @@ export class Hashflags {
   public getUrls(hashtags: string[]): (URL | undefined)[] {
     return hashtags.map((ht: string) => this.activeHashflags.get(ht));
   }
+
+  /**
+   * Takes the text of a tweet, and returns an array of hashflags along with the
+   * associated start and end position.
+   * @param text A tweet
+   */
+  public extractHashflagsWithIndices(text: string): HashflagWithIndices[] {
+    const hashtags: HashtagWithIndices[] = extractHashtagsWithIndices(text);
+    const hashflags: HashflagWithIndices[] = [];
+    hashtags.forEach((value: HashtagWithIndices) => {
+      if (this.activeHashflags.has(value.hashtag)) {
+        hashflags.push({
+          hashflag: value.hashtag,
+          indices: value.indices
+        });
+      }
+    });
+
+    return hashflags;
+  }
 }
 
-interface IHashflagsJson {
+export interface HashflagWithIndices {
+  hashflag: string;
+  indices: [number, number];
+}
+
+interface HashflagsJson {
   hashflagBaseUrl: string;
   activeHashflags: { [hashflag: string]: string };
 }

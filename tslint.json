@@ -1,6 +1,7 @@
 {
   "extends": ["tslint:latest", "tslint-config-prettier", "tslint-microsoft-contrib"],
   "rules": {
-    "no-backbone-get-set-outside-model": false
+    "no-backbone-get-set-outside-model": false,
+    "interface-name": false
   }
 }
