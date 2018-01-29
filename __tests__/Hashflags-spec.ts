@@ -11,6 +11,7 @@ import { Hashflags } from '../src/Hashflags';
 describe('Test', () => {
   let hashflags: Hashflags;
   let olympicTorchURL: URL;
+  const tweet: string = 'I #love the #olympictorchrelay so much!';
 
   beforeAll(async () => {
     const mock: MockAdapter = new MockAdapter(axios);
@@ -51,15 +52,28 @@ describe('Test', () => {
   });
 
   it('Should get hashflags with indices', () => {
-    const tweet: string = 'I #love the #olympictorchrelay';
     expect(hashflags.extractHashflagsWithIndices(tweet)).toHaveLength(1);
-    expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashflag).toEqual(
+    expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashtag).toEqual(
       'olympictorchrelay'
     );
     expect(hashflags.extractHashflagsWithIndices(tweet)[0].indices).toEqual([
       12,
       30
     ]);
+  });
+
+  it('Should get hashflags without indices', () => {
+    expect(hashflags.extractHashflags(tweet)).toHaveLength(1);
+    expect(hashflags.extractHashflags(tweet)[0]).toEqual('olympictorchrelay');
+  });
+
+  it('Should get hashflags without indices', () => {
+    expect(hashflags.autoLink(tweet)).toEqual(
+      'I <a href="https://twitter.com/search?q=%23love" title="#love" class="tweet-url hashtag" rel="nofollow">#love</a> the <a href="ht' +
+        'tps://twitter.com/search?q=%23olympictorchrelay" title="#olympictorchrelay" class="tweet-url hashtag" rel="nofollow">#olympicto' +
+        'rchrelay</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="' +
+        'olympictorchrelay"> so much!'
+    );
   });
 });
 

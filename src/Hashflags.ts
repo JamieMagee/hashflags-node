@@ -1,12 +1,20 @@
 import axios, { AxiosResponse } from 'axios';
-import { extractHashtagsWithIndices, HashtagWithIndices } from 'twitter-text';
+import {
+  autoLink,
+  AutoLinkOptions,
+  extractHashtags,
+  extractHashtagsWithIndices,
+  HashtagWithIndices,
+  isValidHashtag
+} from 'twitter-text';
 import { URL } from 'url';
 
 /**
  * A library for using Twitter hashflags in the browser and Node.js
  */
 export class Hashflags {
-  public activeHashflags: Map<string, URL>;
+  public readonly activeHashflags: Map<string, URL>;
+  private readonly DEFAULT_HASHFLAG_CLASS: string = 'tweet-url hashflag';
 
   constructor(activeHashflags: Map<string, URL>) {
     this.activeHashflags = activeHashflags;
@@ -52,7 +60,7 @@ export class Hashflags {
   /**
    * Takes the text of a tweet, and returns an array of hashflags along with the
    * associated start and end position.
-   * @param text A tweet
+   * @param text The text of a tweet.
    */
   public extractHashflagsWithIndices(text: string): HashflagWithIndices[] {
     const hashtags: HashtagWithIndices[] = extractHashtagsWithIndices(text);
@@ -60,7 +68,8 @@ export class Hashflags {
     hashtags.forEach((value: HashtagWithIndices) => {
       if (this.activeHashflags.has(value.hashtag)) {
         hashflags.push({
-          hashflag: value.hashtag,
+          hashtag: value.hashtag,
+          url: this.activeHashflags.get(value.hashtag),
           indices: value.indices
         });
       }
@@ -68,10 +77,77 @@ export class Hashflags {
 
     return hashflags;
   }
+
+  /**
+   * Takes the text of a tweet, and returns an array of hashflags along with the
+   * associated start and end position.
+   * @param text The text of a tweet.
+   */
+  public extractHashflags(text: string): string[] {
+    const hashtags: string[] = extractHashtags(text);
+    const hashflags: string[] = [];
+    hashtags.forEach((value: string) => {
+      if (this.activeHashflags.has(value)) {
+        hashflags.push(value);
+      }
+    });
+
+    return hashflags;
+  }
+
+  public isValidHashflag(hashflag: string): boolean {
+    const extracted: string[] = extractHashtags(hashflag);
+
+    return isValidHashtag(hashflag) && this.activeHashflags.has(extracted[0]);
+  }
+
+  /**
+   *
+   * @param text The text of a tweet.
+   */
+  public autoLink(text: string): string {
+    const entities: HashflagWithIndices[] = this.extractHashflagsWithIndices(
+      autoLink(text)
+    ).filter(
+      (
+        element: HashflagWithIndices,
+        index: number,
+        array: HashflagWithIndices[]
+      ) => {
+        return index % 2 === 1;
+      }
+    );
+
+    return this.autoLinkHashflag(autoLink(text), entities);
+  }
+
+  private autoLinkHashflag(
+    text: string,
+    entities: HashflagWithIndices[]
+  ): string {
+    const textParts: string[] = [];
+
+    entities.forEach((element: HashflagWithIndices) => {
+      textParts.push(text.substring(0, element.indices[1] + 4));
+      textParts.push(this.generateHashflagLink(element));
+      text = text.substring(element.indices[1] + 4);
+    });
+
+    textParts.push(text);
+
+    return textParts.join('');
+  }
+
+  private generateHashflagLink(hashflag: HashflagWithIndices): string {
+    return `<img src="${hashflag.url}" class="${
+      this.DEFAULT_HASHFLAG_CLASS
+    }" alt="${hashflag.hashtag}">`;
+  }
 }
 
 export interface HashflagWithIndices {
-  hashflag: string;
+  hashtag: string;
+  url: URL | undefined;
   indices: [number, number];
 }
 
