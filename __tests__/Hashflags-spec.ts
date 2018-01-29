@@ -53,8 +53,13 @@ describe('Test', () => {
   it('Should get hashflags with indices', () => {
     const tweet: string = 'I #love the #olympictorchrelay';
     expect(hashflags.extractHashflagsWithIndices(tweet)).toHaveLength(1);
-    expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashflag).toEqual('olympictorchrelay');
-    expect(hashflags.extractHashflagsWithIndices(tweet)[0].indices).toEqual([12, 30]);
+    expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashflag).toEqual(
+      'olympictorchrelay'
+    );
+    expect(hashflags.extractHashflagsWithIndices(tweet)[0].indices).toEqual([
+      12,
+      30
+    ]);
   });
 });
 
