@@ -33,10 +33,9 @@ Importing and initialising `Hashflags` in TypeScript
 
 ```ts
 import { Hashflags } from 'hashflags';
-import { URL } from 'url';
 
 let hf: Hashflags;
-Hashflags.FETCH().then((val: Map<string, URL>) => {
+Hashflags.FETCH().then((val: Map<string, string>) => {
     hf = new Hashflags(val);
     console.log(hf.activeHashflags);
 });
