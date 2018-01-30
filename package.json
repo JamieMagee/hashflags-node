@@ -35,7 +35,7 @@
     "twitter-text": "^2.0.3"
   },
   "devDependencies": {
-    "@types/jest": "^22.1.0",
+    "@types/jest": "^22.1.1",
     "@types/node": "^9.4.0",
     "@types/twitter-text": "^2.0.0",
     "axios-mock-adapter": "^1.12.0",
