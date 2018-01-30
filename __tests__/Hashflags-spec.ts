@@ -40,15 +40,21 @@ describe('Test', () => {
   });
 
   it('Should get hashflag URL', () => {
-    expect(hashflags.getUrl('olympictorchrelay')).toEqual(olympicTorchURL);
-    expect(hashflags.getUrl('test')).toBeUndefined();
+    expect(hashflags.getUrl('#olympictorchrelay')).toEqual(olympicTorchURL);
+    expect(hashflags.getUrl('#love')).toBeUndefined();
   });
 
   it('Should get hashflag URLs', () => {
-    expect(hashflags.getUrls(['olympictorchrelay', 'test'])).toEqual([
+    expect(hashflags.getUrls(['#olympictorchrelay', '#love'])).toEqual([
       olympicTorchURL,
       undefined
     ]);
+  });
+
+  it('Should check if hashflag is valid', () => {
+    expect(hashflags.isValidHashflag('#olympictorchrelay')).toBeTruthy();
+    expect(hashflags.isValidHashflag('olympictorchrelay')).not.toBeTruthy();
+    expect(hashflags.isValidHashflag('#love')).not.toBeTruthy();
   });
 
   it('Should get hashflags with indices', () => {
@@ -68,7 +74,9 @@ describe('Test', () => {
   });
 
   it('Should return correct HTML all hashflags in a tweet', () => {
-    const entities: HashflagWithIndices[] = hashflags.extractHashflagsWithIndices(tweet);
+    const entities: HashflagWithIndices[] = hashflags.extractHashflagsWithIndices(
+      tweet
+    );
     expect(hashflags.autoLinkHashflag(tweet, entities)).toEqual(
       'I #love the #olympictorchrelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
         ' hashflag" alt="olympictorchrelay"> so much!'

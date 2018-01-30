@@ -41,20 +41,24 @@ export class Hashflags {
 
   /**
    * Returns the hashflag URL for a single hashtag.
+   * The hashtag parameter should include the # symbol.
    * @param hashtag The hashtag you wish to retrieve the hashflag URL for.
    * @returns A URL object or undefined
    */
   public getUrl(hashtag: string): URL | undefined {
-    return this.activeHashflags.get(hashtag);
+    const extracted: string = extractHashtags(hashtag)[0];
+
+    return this.activeHashflags.get(extracted);
   }
 
   /**
    * Returns the hashflag URLs for an array of hashtags
+   * The hashtags parameter should include the # symbol
    * @param hashtags an array of hashtags you wish to retrieve the hashflag URLs for
    * @returns An array of URL objects or undefined
    */
   public getUrls(hashtags: string[]): (URL | undefined)[] {
-    return hashtags.map((ht: string) => this.activeHashflags.get(ht));
+    return hashtags.map((ht: string) => this.getUrl(ht));
   }
 
   /**
@@ -95,10 +99,15 @@ export class Hashflags {
     return hashflags;
   }
 
-  public isValidHashflag(hashflag: string): boolean {
-    const extracted: string[] = extractHashtags(hashflag);
+  /**
+   * Checks if a hashtag currently has an active hashflag.
+   * The hashtag parameter should include the # symbol.
+   * @param hashtag The hashtag you wish to check.
+   */
+  public isValidHashflag(hashtag: string): boolean {
+    const extracted: string = extractHashtags(hashtag)[0];
 
-    return isValidHashtag(hashflag) && this.activeHashflags.has(extracted[0]);
+    return isValidHashtag(hashtag) && this.activeHashflags.has(extracted);
   }
 
   /**
