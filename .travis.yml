@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - 'node'
+  - 'lts/carbon'
+  - 'lts/boron'
 script:
   - npm run coverage
 after_script:
