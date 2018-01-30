@@ -102,7 +102,8 @@ export class Hashflags {
   }
 
   /**
-   *
+   * Returns the correct HTML for all possible entities in a tweet.
+   * Includes: hashtags, cashtags, URLs, usernames, lists, and hashflags.
    * @param text The text of a tweet.
    */
   public autoLink(text: string): string {
@@ -121,19 +122,30 @@ export class Hashflags {
     return this.autoLinkHashflag(autoLink(text), entities);
   }
 
-  private autoLinkHashflag(
+  /**
+   * Returns the correct HTML for all hashflags entities in a tweet.
+   * @param text The text of a tweet.
+   * @param entities The hashflag entities to link.
+   */
+  public autoLinkHashflag(
     text: string,
     entities: HashflagWithIndices[]
   ): string {
     const textParts: string[] = [];
+    let textClone: string = text;
+    const linkClosingTag: string = '</a>';
+    const closingTagLength: number = textClone.includes(linkClosingTag)
+      ? linkClosingTag.length
+      : 0;
 
     entities.forEach((element: HashflagWithIndices) => {
-      textParts.push(text.substring(0, element.indices[1] + 4));
+      const endOfHashtagIndex: number = element.indices[1] + closingTagLength;
+      textParts.push(textClone.substring(0, endOfHashtagIndex));
       textParts.push(this.generateHashflagLink(element));
-      text = text.substring(element.indices[1] + 4);
+      textClone = textClone.substring(endOfHashtagIndex);
     });
 
-    textParts.push(text);
+    textParts.push(textClone);
 
     return textParts.join('');
   }

@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as MockAdapter from 'axios-mock-adapter';
 import * as fs from 'fs';
 import { URL } from 'url';
-import { Hashflags } from '../src/Hashflags';
+import { Hashflags, HashflagWithIndices } from '../src/Hashflags';
 
 /**
  * Tests for the Hashflags class
@@ -67,7 +67,15 @@ describe('Test', () => {
     expect(hashflags.extractHashflags(tweet)[0]).toEqual('olympictorchrelay');
   });
 
-  it('Should get hashflags without indices', () => {
+  it('Should return correct HTML all hashflags in a tweet', () => {
+    const entities: HashflagWithIndices[] = hashflags.extractHashflagsWithIndices(tweet);
+    expect(hashflags.autoLinkHashflag(tweet, entities)).toEqual(
+      'I #love the #olympictorchrelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
+        ' hashflag" alt="olympictorchrelay"> so much!'
+    );
+  });
+
+  it('Should return correct HTML all entities in a tweet', () => {
     expect(hashflags.autoLink(tweet)).toEqual(
       'I <a href="https://twitter.com/search?q=%23love" title="#love" class="tweet-url hashtag" rel="nofollow">#love</a> the <a href="ht' +
         'tps://twitter.com/search?q=%23olympictorchrelay" title="#olympictorchrelay" class="tweet-url hashtag" rel="nofollow">#olympicto' +
