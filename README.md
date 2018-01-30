@@ -53,6 +53,10 @@ Hashflags.FETCH().then((val) => {
 });
 ```
 
+# Credits
+
+If you like this follow [@Jamie_Magee](https://twitter.com/Jamie_Magee) on Twitter.
+
 # License
 
 MIT
