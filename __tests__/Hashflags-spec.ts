@@ -10,7 +10,7 @@ import { Hashflags, HashflagWithIndices } from '../src/Hashflags';
 
 describe('Test', () => {
   let hashflags: Hashflags;
-  let olympicTorchURL: URL;
+  let olympicTorchURL: string;
   const tweet: string = 'I #love the #olympictorchrelay so much!';
 
   beforeAll(async () => {
@@ -19,13 +19,12 @@ describe('Test', () => {
       fs.readFileSync('./__tests__/activeHashflags.json', 'utf8')
     );
     mock.onGet(new RegExp('.*')).reply(200, mockData);
-    hashflags = await Hashflags.FETCH().then((val: Map<string, URL>) => {
+    hashflags = await Hashflags.FETCH().then((val: Map<string, string>) => {
       return new Hashflags(val);
     });
 
-    olympicTorchURL = new URL(
-      'https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png'
-    );
+    olympicTorchURL =
+      'https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png';
   });
 
   it('Should have activeHashflags map available', () => {

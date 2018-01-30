@@ -7,21 +7,20 @@ import {
   HashtagWithIndices,
   isValidHashtag
 } from 'twitter-text';
-import { URL } from 'url';
 
 /**
  * A library for using Twitter hashflags in the browser and Node.js
  */
 export class Hashflags {
-  public readonly activeHashflags: Map<string, URL>;
+  public readonly activeHashflags: Map<string, string>;
   private readonly DEFAULT_HASHFLAG_CLASS: string = 'tweet-url hashflag';
 
-  constructor(activeHashflags: Map<string, URL>) {
+  constructor(activeHashflags: Map<string, string>) {
     this.activeHashflags = activeHashflags;
   }
 
-  public static async FETCH(): Promise<Map<string, URL>> {
-    const activeHashflags: Map<string, URL> = new Map();
+  public static async FETCH(): Promise<Map<string, string>> {
+    const activeHashflags: Map<string, string> = new Map();
 
     await axios
       .get('https://hashflags.jamiemagee.co.uk/json/activeHashflags')
@@ -29,9 +28,7 @@ export class Hashflags {
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
           activeHashflags.set(
             key,
-            new URL(
-              response.data.hashflagBaseUrl + response.data.activeHashflags[key]
-            )
+            response.data.hashflagBaseUrl + response.data.activeHashflags[key]
           );
         });
       });
@@ -45,7 +42,7 @@ export class Hashflags {
    * @param hashtag The hashtag you wish to retrieve the hashflag URL for.
    * @returns A URL object or undefined
    */
-  public getUrl(hashtag: string): URL | undefined {
+  public getUrl(hashtag: string): string | undefined {
     const extracted: string = extractHashtags(hashtag)[0];
 
     return this.activeHashflags.get(extracted);
@@ -57,7 +54,7 @@ export class Hashflags {
    * @param hashtags an array of hashtags you wish to retrieve the hashflag URLs for
    * @returns An array of URL objects or undefined
    */
-  public getUrls(hashtags: string[]): (URL | undefined)[] {
+  public getUrls(hashtags: string[]): (string | undefined)[] {
     return hashtags.map((ht: string) => this.getUrl(ht));
   }
 
@@ -168,7 +165,7 @@ export class Hashflags {
 
 export interface HashflagWithIndices {
   hashtag: string;
-  url: URL | undefined;
+  url: string | undefined;
   indices: [number, number];
 }
 
