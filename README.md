@@ -8,6 +8,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/0612b5ce530451c5e520/maintainability)](https://codeclimate.com/github/JamieMagee/hashflags-node/maintainability)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FJamieMagee%2Fhashflags-node.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FJamieMagee%2Fhashflags-node?ref=badge_shield)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Dependabot badge](https://img.shields.io/badge/Dependabot-enabled-blue.svg)](https://dependabot.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/jamiemagee/hashflags-node/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jamiemagee/hashflags-node?targetFile=package.json)
 
