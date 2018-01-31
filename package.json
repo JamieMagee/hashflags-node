@@ -1,6 +1,6 @@
 {
   "name": "hashflags",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "An unofficial library for Twitter hashflags",
   "license": "MIT",
   "repository": {
@@ -20,6 +20,8 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "clean": "rimraf lib && rimraf coverage",
+    "cz": "git-cz",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote",
     "lint": "tslint --fix --project . --force --format verbose \"src/**/*.ts\"",
     "prepare": "npm run build",
@@ -27,25 +29,37 @@
     "build": "tsc --pretty",
     "test": "jest",
     "coverage": "jest --coverage",
+    "semantic-release": "semantic-release",
     "watch": "npm run build -- --watch",
-    "watch:test": "jest --watch"
+    "watch:test": "jest --watch",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "twitter-text": "^2.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^6.0.2",
+    "@commitlint/config-conventional": "^6.0.2",
+    "@commitlint/prompt": "^6.0.2",
+    "@commitlint/travis-cli": "^6.0.2",
     "@types/jest": "^22.1.1",
     "@types/node": "^9.4.0",
     "@types/twitter-text": "^2.0.0",
     "axios-mock-adapter": "^1.12.0",
+    "commitizen": "^2.9.6",
     "coveralls": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "ghooks": "^2.0.2",
     "install": "^0.10.4",
     "jest": "^22.1.4",
     "jest-environment-node-debug": "^2.0.0",
     "npm": "^5.6.0",
     "prettier": "^1.5.2",
     "rimraf": "^2.0.0",
+    "semantic-release": "^12.4.1",
+    "semantic-release-cli": "^3.6.2",
+    "travis-deploy-once": "^4.3.3",
     "ts-jest": "^22.0.2",
     "ts-node": "^4.1.0",
     "tslint": "^5.0.0",
@@ -67,5 +81,17 @@
     ],
     "testEnvironment": "node",
     "mapCoverage": true
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run commitmsg",
+      "pre-push": "npm test",
+      "post-merge": "npm update",
+      "post-rewrite": "npm update"
+    }
   }
 }

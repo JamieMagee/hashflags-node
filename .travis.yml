@@ -1,11 +1,21 @@
 language: node_js
+cache:
+  yarn: true
+notifications:
+  email: false
 node_js:
-  - 'node'
-  - 'lts/carbon'
-  - 'lts/boron'
+  - '9'
+  - '8'
+  - '6'
+install:
+  - yarn --ignore-engines
 script:
+  - yarn commitlint-travis
   - yarn coverage
 after_script:
   - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls'
-cache:
-  yarn: true
+after_success:
+  - yarn travis-deploy-once "yarn semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
