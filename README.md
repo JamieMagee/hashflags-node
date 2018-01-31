@@ -26,7 +26,7 @@ $ npm install hashflags
 Using CDN:
 
 ```HTML
-<script src="https://unpkg.com/jamiemagee/dist/hashflags.min.js"></script>
+<script src="https://unpkg.com/hashflags@1.0.0/lib/Hashflags.js"></script>
 ```
 
 # Examples
