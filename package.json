@@ -42,7 +42,7 @@
     "@commitlint/cli": "^6.0.2",
     "@commitlint/config-conventional": "^6.0.3",
     "@commitlint/prompt": "^6.0.2",
-    "@commitlint/travis-cli": "^6.0.2",
+    "@commitlint/travis-cli": "^6.0.5",
     "@types/jest": "^22.1.1",
     "@types/node": "^9.4.0",
     "@types/twitter-text": "^2.0.0",
