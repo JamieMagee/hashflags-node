@@ -21,7 +21,7 @@
   "scripts": {
     "clean": "rimraf lib && rimraf coverage",
     "cz": "git-cz",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "commitmsg": "commitlint -e",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote",
     "lint": "tslint --fix --project . --force --format verbose \"src/**/*.ts\"",
     "prepare": "npm run build",
