@@ -6111,9 +6111,9 @@ travis-ci@^2.1.1:
     request "~2.74.0"
     underscore.string "~2.2.0rc"
 
-travis-deploy-once@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-4.3.3.tgz#189b45e61160aa5e3c12219c2ac6ea4a5f427885"
+travis-deploy-once@^4.3.4:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-4.3.4.tgz#d8c7a07621453bf461cd0e516dcc313ffd3fd770"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
@@ -6124,7 +6124,7 @@ travis-deploy-once@^4.3.3:
     p-retry "^1.0.0"
     semver "^5.4.1"
     update-notifier "^2.3.0"
-    url-join "^3.0.0"
+    url-join "^4.0.0"
     yargs "^11.0.0"
 
 trim-newlines@^1.0.0:
@@ -6321,6 +6321,10 @@ update-notifier@^2.2.0, update-notifier@^2.3.0, update-notifier@~2.3.0:
 url-join@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-3.0.0.tgz#26e8113ace195ea30d0fc38186e45400f9cea672"
+
+url-join@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
 
 url-parse-lax@^1.0.0:
   version "1.0.0"
