@@ -20,13 +20,7 @@ A library for using Twitter hashflags in the browser and Node.js
 Using npm:
 
 ```sh
-$ npm install hashflags
-```
-
-Using CDN:
-
-```HTML
-<script src="https://unpkg.com/hashflags@1.0.0/lib/Hashflags.js"></script>
+npm install hashflags
 ```
 
 # Examples
