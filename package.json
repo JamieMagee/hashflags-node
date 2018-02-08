@@ -47,7 +47,7 @@
     "@types/jest": "^22.1.1",
     "@types/node": "^9.4.1",
     "@types/twitter-text": "^2.0.0",
-    "axios-mock-adapter": "^1.12.0",
+    "axios-mock-adapter": "^1.13.0",
     "commitizen": "^2.9.6",
     "coveralls": "^3.0.0",
     "cz-conventional-changelog": "^2.1.0",
