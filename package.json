@@ -45,7 +45,7 @@
     "@commitlint/travis-cli": "^6.1.0",
     "@semantic-release/git": "^3.0.0",
     "@types/jest": "^22.1.1",
-    "@types/node": "^9.4.2",
+    "@types/node": "^9.4.5",
     "@types/twitter-text": "^2.0.0",
     "axios-mock-adapter": "^1.13.1",
     "commitizen": "^2.9.6",
