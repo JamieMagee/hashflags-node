@@ -45,7 +45,7 @@ export class Hashflags {
   public getUrl(hashtag: string): string | undefined {
     const extracted: string = extractHashtags(hashtag)[0];
 
-    return this.activeHashflags.get(extracted);
+    return this.activeHashflags.get(extracted.toLowerCase());
   }
 
   /**
@@ -67,10 +67,11 @@ export class Hashflags {
     const hashtags: HashtagWithIndices[] = extractHashtagsWithIndices(text);
     const hashflags: HashflagWithIndices[] = [];
     hashtags.forEach((value: HashtagWithIndices) => {
-      if (this.activeHashflags.has(value.hashtag)) {
+      const lowercaseHashtag: string = value.hashtag.toLowerCase();
+      if (this.activeHashflags.has(lowercaseHashtag)) {
         hashflags.push({
           hashtag: value.hashtag,
-          url: this.activeHashflags.get(value.hashtag),
+          url: this.activeHashflags.get(lowercaseHashtag),
           indices: value.indices
         });
       }
@@ -80,15 +81,14 @@ export class Hashflags {
   }
 
   /**
-   * Takes the text of a tweet, and returns an array of hashflags along with the
-   * associated start and end position.
+   * Takes the text of a tweet, and returns an array of hashflags
    * @param text The text of a tweet.
    */
   public extractHashflags(text: string): string[] {
     const hashtags: string[] = extractHashtags(text);
     const hashflags: string[] = [];
     hashtags.forEach((value: string) => {
-      if (this.activeHashflags.has(value)) {
+      if (this.activeHashflags.has(value.toLowerCase())) {
         hashflags.push(value);
       }
     });
@@ -104,7 +104,7 @@ export class Hashflags {
   public isValidHashflag(hashtag: string): boolean {
     const extracted: string = extractHashtags(hashtag)[0];
 
-    return isValidHashtag(hashtag) && this.activeHashflags.has(extracted);
+    return isValidHashtag(hashtag) && this.activeHashflags.has(extracted.toLowerCase());
   }
 
   /**

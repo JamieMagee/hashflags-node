@@ -11,7 +11,7 @@ import { Hashflags, HashflagWithIndices } from '../src/Hashflags';
 describe('Test', () => {
   let hashflags: Hashflags;
   let olympicTorchURL: string;
-  const tweet: string = 'I #love the #olympictorchrelay so much!';
+  const tweet: string = 'I #love the #OlympicTorchRelay so much!';
 
   beforeAll(async () => {
     const mock: MockAdapter = new MockAdapter(axios);
@@ -36,15 +36,18 @@ describe('Test', () => {
     expect(hashflags.activeHashflags.get('olympictorchrelay')).toEqual(
       olympicTorchURL
     );
+    expect(hashflags.activeHashflags.get('OlympicTorchRelay')).toBeUndefined();
   });
 
   it('Should get hashflag URL', () => {
     expect(hashflags.getUrl('#olympictorchrelay')).toEqual(olympicTorchURL);
+    expect(hashflags.getUrl('#OlympicTorchRelay')).toEqual(olympicTorchURL);
     expect(hashflags.getUrl('#love')).toBeUndefined();
   });
 
   it('Should get hashflag URLs', () => {
-    expect(hashflags.getUrls(['#olympictorchrelay', '#love'])).toEqual([
+    expect(hashflags.getUrls(['#olympictorchrelay', '#OlympicTorchRelay', '#love'])).toEqual([
+      olympicTorchURL,
       olympicTorchURL,
       undefined
     ]);
@@ -53,13 +56,14 @@ describe('Test', () => {
   it('Should check if hashflag is valid', () => {
     expect(hashflags.isValidHashflag('#olympictorchrelay')).toBeTruthy();
     expect(hashflags.isValidHashflag('olympictorchrelay')).not.toBeTruthy();
+    expect(hashflags.isValidHashflag('#OlympicTorchRelay')).toBeTruthy();
     expect(hashflags.isValidHashflag('#love')).not.toBeTruthy();
   });
 
   it('Should get hashflags with indices', () => {
     expect(hashflags.extractHashflagsWithIndices(tweet)).toHaveLength(1);
     expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashtag).toEqual(
-      'olympictorchrelay'
+      'OlympicTorchRelay'
     );
     expect(hashflags.extractHashflagsWithIndices(tweet)[0].indices).toEqual([
       12,
@@ -69,7 +73,7 @@ describe('Test', () => {
 
   it('Should get hashflags without indices', () => {
     expect(hashflags.extractHashflags(tweet)).toHaveLength(1);
-    expect(hashflags.extractHashflags(tweet)[0]).toEqual('olympictorchrelay');
+    expect(hashflags.extractHashflags(tweet)[0]).toEqual('OlympicTorchRelay');
   });
 
   it('Should return correct HTML all hashflags in a tweet', () => {
@@ -77,17 +81,17 @@ describe('Test', () => {
       tweet
     );
     expect(hashflags.autoLinkHashflag(tweet, entities)).toEqual(
-      'I #love the #olympictorchrelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
-        ' hashflag" alt="olympictorchrelay"> so much!'
+      'I #love the #OlympicTorchRelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
+        ' hashflag" alt="OlympicTorchRelay"> so much!'
     );
   });
 
   it('Should return correct HTML all entities in a tweet', () => {
     expect(hashflags.autoLink(tweet)).toEqual(
       'I <a href="https://twitter.com/search?q=%23love" title="#love" class="tweet-url hashtag" rel="nofollow">#love</a> the <a href="ht' +
-        'tps://twitter.com/search?q=%23olympictorchrelay" title="#olympictorchrelay" class="tweet-url hashtag" rel="nofollow">#olympicto' +
-        'rchrelay</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="' +
-        'olympictorchrelay"> so much!'
+        'tps://twitter.com/search?q=%23OlympicTorchRelay" title="#OlympicTorchRelay" class="tweet-url hashtag" rel="nofollow">#OlympicTo' +
+        'rchRelay</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="' +
+        'OlympicTorchRelay"> so much!'
     );
   });
 });
