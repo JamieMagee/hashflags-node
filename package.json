@@ -35,7 +35,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "twitter-text": "^2.0.4"
   },
   "devDependencies": {
