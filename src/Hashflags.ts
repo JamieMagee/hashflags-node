@@ -104,7 +104,10 @@ export class Hashflags {
   public isValidHashflag(hashtag: string): boolean {
     const extracted: string = extractHashtags(hashtag)[0];
 
-    return isValidHashtag(hashtag) && this.activeHashflags.has(extracted.toLowerCase());
+    return (
+      isValidHashtag(hashtag) &&
+      this.activeHashflags.has(extracted.toLowerCase())
+    );
   }
 
   /**
@@ -139,16 +142,19 @@ export class Hashflags {
   ): string {
     const textParts: string[] = [];
     let textClone: string = text;
+    let previousHashtagEndIndex: number = 0;
     const linkClosingTag: string = '</a>';
     const closingTagLength: number = textClone.includes(linkClosingTag)
       ? linkClosingTag.length
       : 0;
 
     entities.forEach((element: HashflagWithIndices) => {
-      const endOfHashtagIndex: number = element.indices[1] + closingTagLength;
+      const endOfHashtagIndex: number =
+        element.indices[1] - previousHashtagEndIndex + closingTagLength;
       textParts.push(textClone.substring(0, endOfHashtagIndex));
       textParts.push(this.generateHashflagLink(element));
       textClone = textClone.substring(endOfHashtagIndex);
+      previousHashtagEndIndex = endOfHashtagIndex;
     });
 
     textParts.push(textClone);

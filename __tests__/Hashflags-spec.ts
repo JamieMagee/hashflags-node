@@ -11,7 +11,7 @@ import { Hashflags, HashflagWithIndices } from '../src/Hashflags';
 describe('Test', () => {
   let hashflags: Hashflags;
   let olympicTorchURL: string;
-  const tweet: string = 'I #love the #OlympicTorchRelay so much!';
+  const tweet: string = 'I #love the #OlympicTorchRelay #성화봉송 so much!';
 
   beforeAll(async () => {
     const mock: MockAdapter = new MockAdapter(axios);
@@ -46,11 +46,9 @@ describe('Test', () => {
   });
 
   it('Should get hashflag URLs', () => {
-    expect(hashflags.getUrls(['#olympictorchrelay', '#OlympicTorchRelay', '#love'])).toEqual([
-      olympicTorchURL,
-      olympicTorchURL,
-      undefined
-    ]);
+    expect(
+      hashflags.getUrls(['#olympictorchrelay', '#OlympicTorchRelay', '#love'])
+    ).toEqual([olympicTorchURL, olympicTorchURL, undefined]);
   });
 
   it('Should check if hashflag is valid', () => {
@@ -61,7 +59,7 @@ describe('Test', () => {
   });
 
   it('Should get hashflags with indices', () => {
-    expect(hashflags.extractHashflagsWithIndices(tweet)).toHaveLength(1);
+    expect(hashflags.extractHashflagsWithIndices(tweet)).toHaveLength(2);
     expect(hashflags.extractHashflagsWithIndices(tweet)[0].hashtag).toEqual(
       'OlympicTorchRelay'
     );
@@ -69,11 +67,19 @@ describe('Test', () => {
       12,
       30
     ]);
+    expect(hashflags.extractHashflagsWithIndices(tweet)[1].hashtag).toEqual(
+      '성화봉송'
+    );
+    expect(hashflags.extractHashflagsWithIndices(tweet)[1].indices).toEqual([
+      31,
+      36
+    ]);
   });
 
   it('Should get hashflags without indices', () => {
-    expect(hashflags.extractHashflags(tweet)).toHaveLength(1);
+    expect(hashflags.extractHashflags(tweet)).toHaveLength(2);
     expect(hashflags.extractHashflags(tweet)[0]).toEqual('OlympicTorchRelay');
+    expect(hashflags.extractHashflags(tweet)[1]).toEqual('성화봉송');
   });
 
   it('Should return correct HTML all hashflags in a tweet', () => {
@@ -82,7 +88,8 @@ describe('Test', () => {
     );
     expect(hashflags.autoLinkHashflag(tweet, entities)).toEqual(
       'I #love the #OlympicTorchRelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
-        ' hashflag" alt="OlympicTorchRelay"> so much!'
+        ' hashflag" alt="OlympicTorchRelay"> #성화봉송<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" c' +
+        'lass="tweet-url hashflag" alt="성화봉송"> so much!'
     );
   });
 
@@ -91,7 +98,9 @@ describe('Test', () => {
       'I <a href="https://twitter.com/search?q=%23love" title="#love" class="tweet-url hashtag" rel="nofollow">#love</a> the <a href="ht' +
         'tps://twitter.com/search?q=%23OlympicTorchRelay" title="#OlympicTorchRelay" class="tweet-url hashtag" rel="nofollow">#OlympicTo' +
         'rchRelay</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="' +
-        'OlympicTorchRelay"> so much!'
+        'OlympicTorchRelay"> <a href="https://twitter.com/search?q=%23성화봉송" title="#성화봉송" class="tweet-url hashtag" rel="nofollow">#' +
+        '성화봉송</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="성' +
+        '화봉송"> so much!'
     );
   });
 });
