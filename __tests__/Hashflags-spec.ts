@@ -91,6 +91,12 @@ describe('Test', () => {
         ' hashflag" alt="OlympicTorchRelay"> #성화봉송<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" c' +
         'lass="tweet-url hashflag" alt="성화봉송"> so much!'
     );
+    expect(hashflags.autoLinkHashflag(tweet, entities, true)).toEqual(
+      'I #love the #OlympicTorchRelay<img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url' +
+        ' hashflag" alt="OlympicTorchRelay" style="height:1.25em;width:1.25em;padding:0 .05em 0 .1em;vertical-align:-0.2em"> #성화봉송<img' +
+        ' src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="성화봉송" style="h' +
+        'eight:1.25em;width:1.25em;padding:0 .05em 0 .1em;vertical-align:-0.2em"> so much!'
+    );
   });
 
   it('Should return correct HTML all entities in a tweet', () => {
@@ -101,6 +107,15 @@ describe('Test', () => {
         'OlympicTorchRelay"> <a href="https://twitter.com/search?q=%23성화봉송" title="#성화봉송" class="tweet-url hashtag" rel="nofollow">#' +
         '성화봉송</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="성' +
         '화봉송"> so much!'
+    );
+    expect(hashflags.autoLink(tweet, true)).toEqual(
+      'I <a href="https://twitter.com/search?q=%23love" title="#love" class="tweet-url hashtag" rel="nofollow">#love</a> the <a href="h' +
+        'ttps://twitter.com/search?q=%23OlympicTorchRelay" title="#OlympicTorchRelay" class="tweet-url hashtag" rel="nofollow">#OlympicT' +
+        'orchRelay</a><img src="https://abs.twimg.com/hashflags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt=' + 
+        '"OlympicTorchRelay" style="height:1.25em;width:1.25em;padding:0 .05em 0 .1em;vertical-align:-0.2em"> <a href="https://twitter.c' + 
+        'om/search?q=%23성화봉송" title="#성화봉송" class="tweet-url hashtag" rel="nofollow">#성화봉송</a><img src="https://abs.twimg.com/hash' + 
+        'flags/OlympicFlameEmoji/OlympicFlameEmoji.png" class="tweet-url hashflag" alt="성화봉송" style="height:1.25em;width:1.25em;paddin' + 
+        'g:0 .05em 0 .1em;vertical-align:-0.2em"> so much!'
     );
   });
 });

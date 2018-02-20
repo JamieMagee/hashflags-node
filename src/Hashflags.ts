@@ -115,7 +115,7 @@ export class Hashflags {
    * Includes: hashtags, cashtags, URLs, usernames, lists, and hashflags.
    * @param text The text of a tweet.
    */
-  public autoLink(text: string): string {
+  public autoLink(text: string, includeStyles: boolean = false): string {
     const entities: HashflagWithIndices[] = this.extractHashflagsWithIndices(
       autoLink(text)
     ).filter(
@@ -128,7 +128,7 @@ export class Hashflags {
       }
     );
 
-    return this.autoLinkHashflag(autoLink(text), entities);
+    return this.autoLinkHashflag(autoLink(text), entities, includeStyles);
   }
 
   /**
@@ -138,7 +138,8 @@ export class Hashflags {
    */
   public autoLinkHashflag(
     text: string,
-    entities: HashflagWithIndices[]
+    entities: HashflagWithIndices[],
+    includeStyles: boolean = false
   ): string {
     const textParts: string[] = [];
     let textClone: string = text;
@@ -152,7 +153,7 @@ export class Hashflags {
       const endOfHashtagIndex: number =
         element.indices[1] - previousHashtagEndIndex + closingTagLength;
       textParts.push(textClone.substring(0, endOfHashtagIndex));
-      textParts.push(this.generateHashflagLink(element));
+      textParts.push(this.generateHashflagLink(element, includeStyles));
       textClone = textClone.substring(endOfHashtagIndex);
       previousHashtagEndIndex = endOfHashtagIndex;
     });
@@ -162,10 +163,17 @@ export class Hashflags {
     return textParts.join('');
   }
 
-  private generateHashflagLink(hashflag: HashflagWithIndices): string {
+  private generateHashflagLink(
+    hashflag: HashflagWithIndices,
+    includeStyles: boolean
+  ): string {
     return `<img src="${hashflag.url}" class="${
       this.DEFAULT_HASHFLAG_CLASS
-    }" alt="${hashflag.hashtag}">`;
+    }" alt="${hashflag.hashtag}"${
+      includeStyles
+        ? ' style="height:1.25em;width:1.25em;padding:0 .05em 0 .1em;vertical-align:-0.2em"'
+        : ''
+    }>`;
   }
 }
 
