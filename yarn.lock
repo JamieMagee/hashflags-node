@@ -160,10 +160,10 @@
     conventional-commits-parser "^2.1.0"
 
 "@commitlint/prompt@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-6.1.0.tgz#8c2617050858bc16e8d5d583e27afbfcbf23eae2"
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-6.1.2.tgz#75fd7a913285db2b88bd5309ded0b0576740c429"
   dependencies:
-    "@commitlint/core" "^6.1.0"
+    "@commitlint/load" "^6.1.2"
     babel-runtime "^6.23.0"
     chalk "^2.0.0"
     lodash.camelcase "4.3.0"
