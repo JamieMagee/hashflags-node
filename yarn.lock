@@ -227,9 +227,9 @@
     parse-github-url "^1.0.1"
     url-join "^4.0.0"
 
-"@semantic-release/npm@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/npm/-/npm-3.1.0.tgz#bc6a6a9ffd5f1e3604875aeb15a5599e335a7e29"
+"@semantic-release/npm@^3.2.0":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@semantic-release/npm/-/npm-3.2.2.tgz#e4cc7e4d09d51099e132cd8bbe5adfae08f1078a"
   dependencies:
     "@semantic-release/error" "^2.2.0"
     aggregate-error "^1.0.0"
@@ -5974,14 +5974,14 @@ semantic-release-cli@^3.6.3:
   optionalDependencies:
     keytar "^4.0.4"
 
-semantic-release@^13.4.1:
-  version "13.4.1"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-13.4.1.tgz#570ef1622fe37e82fab7c9225ca427596d379b60"
+semantic-release@^15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.0.1.tgz#c544af65e45c2bcf8024235ac359ce3083874a98"
   dependencies:
     "@semantic-release/commit-analyzer" "^5.0.0"
     "@semantic-release/error" "^2.2.0"
     "@semantic-release/github" "^4.1.0"
-    "@semantic-release/npm" "^3.1.0"
+    "@semantic-release/npm" "^3.2.0"
     "@semantic-release/release-notes-generator" "^6.0.0"
     aggregate-error "^1.0.0"
     chalk "^2.3.0"
