@@ -58,7 +58,7 @@
     "npm": "^5.6.0",
     "prettier": "^1.10.2",
     "rimraf": "^2.6.2",
-    "semantic-release": "^13.4.1",
+    "semantic-release": "^15.0.1",
     "semantic-release-cli": "^3.6.3",
     "travis-deploy-once": "^4.3.4",
     "ts-jest": "^22.0.4",
