@@ -6601,8 +6601,8 @@ travis-ci@^2.1.1:
     underscore.string "~2.2.0rc"
 
 travis-deploy-once@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-4.3.4.tgz#d8c7a07621453bf461cd0e516dcc313ffd3fd770"
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-4.4.0.tgz#eecff2fb66c75374e586d6c45e8baba0db392adc"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
