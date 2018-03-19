@@ -1545,7 +1545,7 @@ commander@2.9.0:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
-commander@^2.11.0, commander@^2.12.1, commander@^2.9.0:
+commander@^2.12.1, commander@^2.9.0:
   version "2.13.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
@@ -2967,6 +2967,10 @@ hook-std@^0.4.0:
 hosted-git-info@^2.1.4, hosted-git-info@^2.4.2, hosted-git-info@^2.5.0, hosted-git-info@~2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
+
+hosted-git-info@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
 
 html-encoding-sniffer@^1.0.1:
   version "1.0.2"
@@ -6028,8 +6032,8 @@ semantic-release-cli@^3.6.3:
     keytar "^4.0.4"
 
 semantic-release@^15.0.1:
-  version "15.0.3"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.0.3.tgz#e057de778ad399212b66e860e761f7f54e1d14e0"
+  version "15.1.2"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-15.1.2.tgz#ba55d0cd182f3077bc9f10342c58a28c878d67ed"
   dependencies:
     "@semantic-release/commit-analyzer" "^5.0.0"
     "@semantic-release/error" "^2.2.0"
@@ -6038,15 +6042,15 @@ semantic-release@^15.0.1:
     "@semantic-release/release-notes-generator" "^6.0.0"
     aggregate-error "^1.0.0"
     chalk "^2.3.0"
-    commander "^2.11.0"
     cosmiconfig "^4.0.0"
     debug "^3.1.0"
     env-ci "^1.0.0"
-    execa "^0.9.0"
+    execa "^0.10.0"
     get-stream "^3.0.0"
     git-log-parser "^1.2.0"
     git-url-parse "^8.1.0"
     hook-std "^0.4.0"
+    hosted-git-info "^2.6.0"
     lodash "^4.17.4"
     marked "^0.3.9"
     marked-terminal "^2.0.0"
