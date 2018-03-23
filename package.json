@@ -52,7 +52,7 @@
     "coveralls": "^3.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "ghooks": "^2.0.2",
-    "install": "^0.10.4",
+    "install": "^0.11.0",
     "jest": "^22.4.0",
     "jest-environment-node-debug": "^2.0.0",
     "npm": "^5.6.0",
