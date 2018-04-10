@@ -1130,7 +1130,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^3.4.6, bluebird@^3.5.0, bluebird@^3.5.1, bluebird@~3.5.1:
+bluebird@^3.5.0, bluebird@^3.5.1, bluebird@~3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -6242,14 +6242,13 @@ sax@^1.2.1:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
 semantic-release-cli@^3.6.3:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-3.6.4.tgz#aaee49063af38a5ef025eb0a7ff87efa6ad3650e"
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-3.6.6.tgz#f7339dbcc60b0a5bfa308272b11711cc064bbd3b"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
     babel-register "^6.26.0"
     base32 "0.0.6"
-    bluebird "^3.4.6"
     clipboardy "^1.2.2"
     git-config-path "^1.0.1"
     github-url-from-git "^1.4.0"
@@ -6261,8 +6260,10 @@ semantic-release-cli@^3.6.3:
     npm "^5.5.1"
     npm-registry-client "^8.5.0"
     npmlog "^4.0.0"
+    p-retry "^1.0.0"
     parse-git-config "^2.0.0"
     parse-github-repo-url "^1.0.0"
+    pify "^3.0.0"
     request "^2.85.0"
     request-debug "^0.2.0"
     request-promise "^4.1.1"
