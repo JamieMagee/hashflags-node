@@ -197,15 +197,15 @@
   resolved "https://registry.yarnpkg.com/@semantic-release/error/-/error-2.2.0.tgz#ee9d5a09c9969eade1ec864776aeda5c5cddbbf0"
 
 "@semantic-release/git@^4.0.1":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-4.0.2.tgz#d1fdd45ba08ec53120c1ed2aa925b7ee762e6a26"
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@semantic-release/git/-/git-4.0.3.tgz#9be69730fdf6adc1df381a19b9db2800074b35c4"
   dependencies:
     "@semantic-release/error" "^2.1.0"
     aggregate-error "^1.0.0"
     debug "^3.1.0"
     dir-glob "^2.0.0"
     execa "^0.10.0"
-    fs-extra "^5.0.0"
+    fs-extra "^6.0.0"
     lodash "^4.17.4"
     micromatch "^3.1.4"
     p-reduce "^1.0.0"
@@ -2558,6 +2558,14 @@ fs-extra@^1.0.0:
 fs-extra@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
+fs-extra@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-6.0.0.tgz#0f0afb290bb3deb87978da816fcd3c7797f3a817"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
