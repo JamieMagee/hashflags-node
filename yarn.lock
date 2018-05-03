@@ -6456,8 +6456,8 @@ sax@^1.2.1:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
 semantic-release-cli@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-4.0.0.tgz#74e5d3657310e62cf9de1c7cc9006244b30d6777"
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-4.0.1.tgz#7b794671257972ef32c2fd3b1cc0d22b9b896e52"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
@@ -6484,7 +6484,7 @@ semantic-release-cli@^4.0.0:
     travis-ci "^2.1.1"
     update-notifier "^2.3.0"
     user-home "^2.0.0"
-    validator "^9.0.0"
+    validator "^10.0.0"
   optionalDependencies:
     keytar "^4.0.4"
 
@@ -7470,9 +7470,9 @@ validate-npm-package-name@^3.0.0, validate-npm-package-name@~3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-validator@^9.0.0:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-9.4.0.tgz#c503ef88f7e6b8fb7688599267b309482d81ae60"
+validator@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-10.0.0.tgz#f57664d1d4bee46291f76be95ed27733cc8156aa"
 
 verror@1.10.0:
   version "1.10.0"
