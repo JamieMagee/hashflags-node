@@ -41,7 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@commitlint/config-conventional": "^6.1.0",
-    "@commitlint/prompt": "^6.1.0",
+    "@commitlint/prompt": "^7.0.0",
     "@commitlint/travis-cli": "^6.1.0",
     "@semantic-release/git": "^5.0.0",
     "@types/jest": "^23.1.3",
