@@ -24,13 +24,13 @@
     "commitmsg": "commitlint -e",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote",
     "lint": "tslint --fix --project . --force --format verbose \"src/**/*.ts\"",
-    "prepare": "npm run build",
-    "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
+    "prepare": "yarn run build",
+    "prebuild": "yarn run clean && yarn run format && yarn run lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty",
     "test": "jest",
     "coverage": "jest --coverage",
     "semantic-release": "semantic-release",
-    "watch": "npm run build -- --watch",
+    "watch": "yarn run build -- --watch",
     "watch:test": "jest --watch",
     "travis-deploy-once": "travis-deploy-once"
   },
@@ -87,11 +87,11 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "npm run commitmsg",
-      "pre-push": "npm test",
-      "post-merge": "npm update",
-      "post-rewrite": "npm update"
+      "pre-commit": "yarn run lint",
+      "commit-msg": "yarn run commitmsg",
+      "pre-push": "yarn test",
+      "post-merge": "yarn update",
+      "post-rewrite": "yarn update"
     }
   },
   "release": {
