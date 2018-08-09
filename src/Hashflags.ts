@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import {
   autoLink,
-  AutoLinkOptions,
   extractHashtags,
   extractHashtagsWithIndices,
   HashtagWithIndices,
@@ -28,7 +27,7 @@ export class Hashflags {
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
           activeHashflags.set(
             key,
-            response.data.hashflagBaseUrl + response.data.activeHashflags[key]
+            response.data.activeHashflags[key]
           );
         });
       });
@@ -184,6 +183,5 @@ export interface HashflagWithIndices {
 }
 
 interface HashflagsJson {
-  hashflagBaseUrl: string;
   activeHashflags: { [hashflag: string]: string };
 }
