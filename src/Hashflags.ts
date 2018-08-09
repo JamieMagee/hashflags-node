@@ -25,10 +25,7 @@ export class Hashflags {
       .get('https://hashflags.jamiemagee.co.uk/json/activeHashflags')
       .then((response: AxiosResponse<HashflagsJson>) => {
         Object.keys(response.data.activeHashflags).forEach((key: string) => {
-          activeHashflags.set(
-            key,
-            response.data.activeHashflags[key]
-          );
+          activeHashflags.set(key, response.data.activeHashflags[key]);
         });
       });
 
