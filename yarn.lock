@@ -45,6 +45,12 @@
   dependencies:
     babel-runtime "6.26.0"
 
+"@commitlint/execute-rule@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-7.1.1.tgz#c1c792a6b43dde3529ac15d9aba35cc42cc3f882"
+  dependencies:
+    babel-runtime "6.26.0"
+
 "@commitlint/format@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-7.0.0.tgz#3be1fdf0c3c41feb98e275b4f605c598c509b920"
@@ -82,6 +88,20 @@
     lodash.topairs "4.3.0"
     resolve-from "4.0.0"
 
+"@commitlint/load@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-7.1.1.tgz#c84a888ed1e3ad9a9d16329607274081437a4295"
+  dependencies:
+    "@commitlint/execute-rule" "^7.1.1"
+    "@commitlint/resolve-extends" "^7.1.1"
+    babel-runtime "^6.23.0"
+    cosmiconfig "^4.0.0"
+    lodash.merge "4.6.1"
+    lodash.mergewith "4.6.1"
+    lodash.pick "4.4.0"
+    lodash.topairs "4.3.0"
+    resolve-from "4.0.0"
+
 "@commitlint/message@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/message/-/message-7.0.0.tgz#6fb22563e31901ff5da4391db1346fda7115fa53"
@@ -94,10 +114,10 @@
     conventional-commits-parser "^2.1.0"
 
 "@commitlint/prompt@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-7.0.0.tgz#d44359fab0cfb61eb7ebb67a89da2651939f5102"
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-7.1.1.tgz#4d5216717bcd7c10607ac7271945956b94062bcc"
   dependencies:
-    "@commitlint/load" "^7.0.0"
+    "@commitlint/load" "^7.1.1"
     babel-runtime "^6.23.0"
     chalk "^2.0.0"
     lodash.camelcase "4.3.0"
@@ -121,6 +141,17 @@
 "@commitlint/resolve-extends@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-7.0.0.tgz#34937525ea3bc037365c530bce9b1c73ef4eb74d"
+  dependencies:
+    babel-runtime "6.26.0"
+    lodash.merge "4.6.1"
+    lodash.omit "4.5.0"
+    require-uncached "^1.0.3"
+    resolve-from "^4.0.0"
+    resolve-global "^0.1.0"
+
+"@commitlint/resolve-extends@^7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-7.1.1.tgz#80043d1031ba8eb836aa74d673ab43ab041cc179"
   dependencies:
     babel-runtime "6.26.0"
     lodash.merge "4.6.1"
