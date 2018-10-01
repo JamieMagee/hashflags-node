@@ -8026,8 +8026,8 @@ travis-ci@^2.1.1:
     underscore.string "~2.2.0rc"
 
 travis-deploy-once@^5.0.0:
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-5.0.7.tgz#31a27f7e5ddf8b52591fd34743d22d1b587486c1"
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/travis-deploy-once/-/travis-deploy-once-5.0.9.tgz#c5a2f639e17d8fd542f66d25ade126179d5e8acf"
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/polyfill" "^7.0.0"
