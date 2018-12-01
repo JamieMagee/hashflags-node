@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "twitter-text": "^2.0.4"
+    "twitter-text": "^3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
