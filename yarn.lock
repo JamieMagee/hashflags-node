@@ -3808,8 +3808,8 @@ inquirer@6.2.0, inquirer@^6.0.0:
     through "^2.3.6"
 
 install@^0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/install/-/install-0.12.1.tgz#38b2dd4489330e9af3eeaba93b9e3fc77dee7872"
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.12.2.tgz#ea10e9b2cbb5b0484f25080b24b5b34429d9f564"
 
 interpret@^1.0.0:
   version "1.1.0"
