@@ -7616,8 +7616,8 @@ ts-jest@^23.0.1:
     lodash "^4.17.10"
 
 ts-node@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.0.2.tgz#9ecdf8d782a0ca4c80d1d641cbb236af4ac1b756"
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.0.3.tgz#aa60b836a24dafd8bf21b54766841a232fdbc641"
   dependencies:
     arg "^4.1.0"
     diff "^3.1.0"
