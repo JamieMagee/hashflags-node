@@ -24,7 +24,7 @@
     "commitmsg": "commitlint -e",
     "format": "prettier --write \"{src,__tests__}/**/*.ts\" --single-quote",
     "lint": "tslint --fix --project . --force --format verbose \"src/**/*.ts\"",
-    "prepare": "yarn run build",
+    "prepare": "npm run snyk-protect; yarn run build",
     "prebuild": "yarn run clean && yarn run format && yarn run lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty",
     "test": "jest",
@@ -32,11 +32,13 @@
     "semantic-release": "semantic-release",
     "watch": "yarn run build -- --watch",
     "watch:test": "jest --watch",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "twitter-text": "^3.0.0"
+    "twitter-text": "^3.0.0",
+    "snyk": "^1.161.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
@@ -104,5 +106,6 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  }
+  },
+  "snyk": true
 }
