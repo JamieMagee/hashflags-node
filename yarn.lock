@@ -767,11 +767,11 @@
     conventional-commits-parser "^2.1.0"
     lodash "^4.17.11"
 
-"@commitlint/prompt@^7.0.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-7.5.0.tgz#4bac62152478acc25951dde42bd0d9f2ee5c3340"
+"@commitlint/prompt@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-8.0.0.tgz#6199d71c63f381c2ba29d90cdccf9a47e663addf"
   dependencies:
-    "@commitlint/load" "^7.5.0"
+    "@commitlint/load" "^8.0.0"
     babel-runtime "^6.23.0"
     chalk "^2.0.0"
     lodash "4.17.11"
