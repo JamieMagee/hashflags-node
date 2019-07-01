@@ -39,7 +39,7 @@
     "twitter-text": "^3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
+    "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^7.1.2",
     "@commitlint/prompt": "^7.0.0",
     "@commitlint/travis-cli": "^7.0.0",
