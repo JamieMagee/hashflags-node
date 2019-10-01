@@ -670,9 +670,9 @@
   dependencies:
     babel-runtime "6.26.0"
 
-"@commitlint/execute-rule@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-8.1.0.tgz#e8386bd0836b3dcdd41ebb9d5904bbeb447e4715"
+"@commitlint/execute-rule@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-8.2.0.tgz#aefb3744e22613660adefb7ebcccaa60bd24e78d"
 
 "@commitlint/format@^7.5.0":
   version "7.5.0"
@@ -720,12 +720,12 @@
     babel-runtime "^6.23.0"
     lodash "4.17.14"
 
-"@commitlint/load@>6.1.1", "@commitlint/load@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-8.1.0.tgz#63b72ae5bb9152b8fa5b17c5428053032a9a49c8"
+"@commitlint/load@>6.1.1", "@commitlint/load@^8.1.0", "@commitlint/load@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-8.2.0.tgz#9ca53a0c795e4f63d796b4d42279e856549add1a"
   dependencies:
-    "@commitlint/execute-rule" "^8.1.0"
-    "@commitlint/resolve-extends" "^8.1.0"
+    "@commitlint/execute-rule" "^8.2.0"
+    "@commitlint/resolve-extends" "^8.2.0"
     babel-runtime "^6.23.0"
     chalk "2.4.2"
     cosmiconfig "^5.2.0"
@@ -768,10 +768,10 @@
     lodash "^4.17.11"
 
 "@commitlint/prompt@^8.0.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-8.1.0.tgz#e3ef4dbceb0c73c5f6764f587ab5bfb0f6295356"
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-8.2.0.tgz#814b6d7665605562251133773033365a568b391d"
   dependencies:
-    "@commitlint/load" "^8.1.0"
+    "@commitlint/load" "^8.2.0"
     babel-runtime "^6.23.0"
     chalk "^2.0.0"
     lodash "4.17.14"
@@ -806,9 +806,9 @@
     resolve-from "^4.0.0"
     resolve-global "^0.1.0"
 
-"@commitlint/resolve-extends@^8.1.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-8.1.0.tgz#ed67f2ee484160ac8e0078bae52f172625157472"
+"@commitlint/resolve-extends@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/resolve-extends/-/resolve-extends-8.2.0.tgz#b7f2f0c71c10f24b98a199ed11d2c14cfd7a318f"
   dependencies:
     "@types/node" "^12.0.2"
     import-fresh "^3.0.0"
