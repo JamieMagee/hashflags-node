@@ -7459,9 +7459,9 @@ sax@^1.2.1, sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semantic-release-cli@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.2.0.tgz#ec601a62862e12c43cddaef007f4ca0d754dd7c5"
+semantic-release-cli@5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.2.1.tgz#87fdb4875189673428c101a5b58e090816ca8746"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
