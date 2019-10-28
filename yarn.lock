@@ -7837,9 +7837,9 @@ sax@^1.2.1, sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-semantic-release-cli@5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.2.1.tgz#87fdb4875189673428c101a5b58e090816ca8746"
+semantic-release-cli@5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/semantic-release-cli/-/semantic-release-cli-5.2.2.tgz#3eaf33f0f9fe8436ecf4a0dcd76e810918bd65ac"
   dependencies:
     babel-polyfill "^6.26.0"
     babel-preset-env "^1.6.1"
@@ -7866,7 +7866,7 @@ semantic-release-cli@5.2.1:
     travis-ci "^2.1.1"
     update-notifier "^3.0.0"
     user-home "^2.0.0"
-    validator "^11.0.0"
+    validator "^12.0.0"
 
 semantic-release@15.13.28:
   version "15.13.28"
@@ -8939,9 +8939,9 @@ validate-npm-package-name@^3.0.0, validate-npm-package-name@~3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-validator@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-11.0.0.tgz#fb10128bfb1fd14ce4ed36b79fc94289eae70667"
+validator@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-12.0.0.tgz#fb33221f5320abe2422cda2f517dc3838064e813"
 
 verror@1.10.0:
   version "1.10.0"
