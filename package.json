@@ -42,7 +42,7 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@commitlint/prompt": "8.2.0",
-    "@commitlint/travis-cli": "7.6.1",
+    "@commitlint/travis-cli": "8.2.0",
     "@semantic-release/git": "7.0.17",
     "@types/jest": "24.0.21",
     "@types/node": "12.12.3",
