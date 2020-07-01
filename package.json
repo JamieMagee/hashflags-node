@@ -39,10 +39,10 @@
     "twitter-text": "^3.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "8.3.5",
-    "@commitlint/config-conventional": "8.3.4",
-    "@commitlint/prompt": "8.3.5",
-    "@commitlint/travis-cli": "8.3.5",
+    "@commitlint/cli": "9.0.1",
+    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/prompt": "9.0.1",
+    "@commitlint/travis-cli": "9.0.1",
     "@semantic-release/git": "7.0.18",
     "@types/jest": "24.9.1",
     "@types/node": "12.12.47",
