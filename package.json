@@ -50,7 +50,7 @@
     "axios-mock-adapter": "1.18.1",
     "commitizen": "4.1.2",
     "coveralls": "3.1.0",
-    "cz-conventional-changelog": "3.1.0",
+    "cz-conventional-changelog": "3.2.0",
     "ghooks": "2.0.4",
     "install": "0.13.0",
     "jest": "24.9.0",
